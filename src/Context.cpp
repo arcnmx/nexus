@@ -8,7 +8,7 @@
 
 #include "Context.h"
 
-#include <Psapi.h>
+#include <psapi.h>
 
 #include "Branch.h"
 #include "Index.h"

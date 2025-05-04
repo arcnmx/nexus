@@ -20,7 +20,7 @@
 #include "resource.h"
 #include "Services/Settings/Settings.h"
 #include "Shared.h"
-#include "UI/UIContext.h"
+#include "UI/UiContext.h"
 
 #define GW2_QUICKACCESS_ITEMS 10;
 

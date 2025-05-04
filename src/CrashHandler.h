@@ -2,7 +2,7 @@
 #define CRASHHANDLER_H
 
 #include <windows.h>
-#include <Dbghelp.h>
+#include <dbghelp.h>
 #include <tchar.h>
 
 LONG WINAPI UnhandledExcHandler(struct _EXCEPTION_POINTERS* aExceptionInfoPtr);
