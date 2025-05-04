@@ -144,7 +144,7 @@ void CMumbleOverlay::Render()
 				ImGui::TableSetColumnIndex(1); ImGui::Text("%09.4f", MumbleLink->Context.Compass.PlayerPosition.Y);
 				ImGui::TableNextRow();
 				ImGui::TableSetColumnIndex(0); ImGui::Text("mount");
-				ImGui::TableSetColumnIndex(1); ImGui::Text("%d", MumbleLink->Context.MountIndex);
+				ImGui::TableSetColumnIndex(1); ImGui::Text("%d", (int)MumbleLink->Context.MountIndex);
 
 				ImGui::EndTable();
 			}
@@ -200,7 +200,7 @@ void CMumbleOverlay::Render()
 				ImGui::TableSetColumnIndex(1); ImGui::Text("%u", MumbleLink->Context.MapID);
 				ImGui::TableNextRow();
 				ImGui::TableSetColumnIndex(0); ImGui::Text("maptype");
-				ImGui::TableSetColumnIndex(1); ImGui::Text("%d", MumbleLink->Context.MapType);
+				ImGui::TableSetColumnIndex(1); ImGui::Text("%d", (int)MumbleLink->Context.MapType);
 				ImGui::TableNextRow();
 				ImGui::TableSetColumnIndex(0); ImGui::Text("ip");
 				ImGui::TableSetColumnIndex(1); ImGui::Text("%u.%u.%u.%u",
@@ -252,7 +252,7 @@ void CMumbleOverlay::Render()
 					ImGui::TableSetColumnIndex(1); ImGui::Text("%d", this->MumbleIdentity->Profession);
 					ImGui::TableNextRow();
 					ImGui::TableSetColumnIndex(0); ImGui::Text("race");
-					ImGui::TableSetColumnIndex(1); ImGui::Text("%d", this->MumbleIdentity->Race);
+					ImGui::TableSetColumnIndex(1); ImGui::Text("%d", (int)this->MumbleIdentity->Race);
 					ImGui::TableNextRow();
 					ImGui::TableSetColumnIndex(0); ImGui::Text("spec");
 					ImGui::TableSetColumnIndex(1); ImGui::Text("%d", this->MumbleIdentity->Specialization);
@@ -261,7 +261,7 @@ void CMumbleOverlay::Render()
 					ImGui::TableSetColumnIndex(1); ImGui::Text("%u", this->MumbleIdentity->TeamColorID);
 					ImGui::TableNextRow();
 					ImGui::TableSetColumnIndex(0); ImGui::Text("uisz");
-					ImGui::TableSetColumnIndex(1); ImGui::Text("%d", this->MumbleIdentity->UISize);
+					ImGui::TableSetColumnIndex(1); ImGui::Text("%d", (int)this->MumbleIdentity->UISize);
 					ImGui::TableNextRow();
 					ImGui::TableSetColumnIndex(0); ImGui::Text("world");
 					ImGui::TableSetColumnIndex(1); ImGui::Text("%u", this->MumbleIdentity->WorldID);
@@ -288,7 +288,7 @@ void CMumbleOverlay::Render()
 			{
 				ImGui::TableNextRow();
 				ImGui::TableSetColumnIndex(0); ImGui::Text("frame");
-				ImGui::TableSetColumnIndex(1); ImGui::Text("%d", Renderer::FrameCounter);
+				ImGui::TableSetColumnIndex(1); ImGui::Text("%d", (int)Renderer::FrameCounter);
 				ImGui::TableNextRow();
 				ImGui::TableSetColumnIndex(0); ImGui::Text("isMoving");
 				ImGui::TableSetColumnIndex(1); ImGui::Text("%s", NexusLink->IsMoving ? "true" : "false");

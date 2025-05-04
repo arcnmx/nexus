@@ -81,7 +81,7 @@ void CEventApi::Subscribe(const char* aIdentifier, EVENT_CONSUME aConsumeEventCa
 		void* startAddress = addon->Module;
 		void* endAddress = ((PBYTE)addon->Module) + addon->ModuleSize;
 
-		if (aConsumeEventCallback >= startAddress && aConsumeEventCallback <= endAddress)
+		if ((void*)aConsumeEventCallback >= startAddress && (void*)aConsumeEventCallback <= endAddress)
 		{
 			sub.Signature = addon->Definitions->Signature;
 			break;
@@ -158,7 +158,7 @@ int CEventApi::Verify(void* aStartAddress, void* aEndAddress)
 				ev.Subscribers.end(),
 				[&refCounter, aStartAddress, aEndAddress](EventSubscriber& sub)
 				{
-					if (sub.Callback >= aStartAddress && sub.Callback <= aEndAddress)
+					if ((void*)sub.Callback >= aStartAddress && (void*)sub.Callback <= aEndAddress)
 					{
 						refCounter++;
 						return true;

@@ -63,7 +63,7 @@ int CRawInputApi::Verify(void* aStartAddress, void* aEndAddress)
 	const std::lock_guard<std::mutex> lock(this->Mutex);
 	for (WNDPROC_CALLBACK wndprocCb : this->Registry)
 	{
-		if (wndprocCb >= aStartAddress && wndprocCb <= aEndAddress)
+		if ((void*)wndprocCb >= aStartAddress && (void*)wndprocCb <= aEndAddress)
 		{
 			this->Registry.erase(std::remove(this->Registry.begin(), this->Registry.end(), wndprocCb), this->Registry.end());
 			refCounter++;

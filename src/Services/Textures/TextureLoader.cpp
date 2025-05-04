@@ -380,7 +380,7 @@ int CTextureLoader::Verify(void* aStartAddress, void* aEndAddress)
 
 	for (QueuedTexture& qTex : this->QueuedTextures)
 	{
-		if (qTex.Callback >= aStartAddress && qTex.Callback <= aEndAddress)
+		if ((void*)qTex.Callback >= aStartAddress && (void*)qTex.Callback <= aEndAddress)
 		{
 			qTex.Callback = nullptr;
 			refCounter++;
