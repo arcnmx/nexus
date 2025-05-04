@@ -9,7 +9,7 @@
 #include "Loader.h"
 
 #include <chrono>
-#include <Psapi.h>
+#include <psapi.h>
 #include <regex>
 #include <vector>
 #include <Windows.h>
@@ -911,7 +911,7 @@ namespace Loader
 		addon->State = locked ? EAddonState::LoadedLOCKED : EAddonState::Loaded;
 		SaveAddonConfig();
 
-		Logger->Info(CH_LOADER, u8"Loaded addon: %s\nSignature: %d\nAddress Space: %p - %p\nAPI Version: %d\nTook %uµs to load.",
+		Logger->Info(CH_LOADER, (const char*)u8"Loaded addon: %s\nSignature: %d\nAddress Space: %p - %p\nAPI Version: %d\nTook %uµs to load.",
 					 strFile.c_str(), addon->Definitions->Signature,
 					 addon->Module, ((PBYTE)addon->Module) + moduleInfo.SizeOfImage,
 					 addon->Definitions->APIVersion, time / std::chrono::microseconds(1)
@@ -947,13 +947,13 @@ namespace Loader
 			aAddon->IsFlaggedForDisable = flagDisable;
 		}
 
-		std::chrono::steady_clock::time_point start_time = std::chrono::high_resolution_clock::now();
+		auto start_time = std::chrono::high_resolution_clock::now();
 		if (aAddon->Definitions->Unload) // guaranteed to have defs because only called from UnloadAddon()
 		{
 			aAddon->Definitions->Unload();
 		}
-		std::chrono::steady_clock::time_point end_time = std::chrono::high_resolution_clock::now();
-		std::chrono::steady_clock::duration time = end_time - start_time;
+		auto end_time = std::chrono::high_resolution_clock::now();
+		auto time = end_time - start_time;
 
 		if (aAddon->Module && aAddon->ModuleSize > 0)
 		{
@@ -992,7 +992,7 @@ namespace Loader
 		}
 
 		aAddon->IsWaitingForUnload = false;
-		Logger->Info(CH_LOADER, u8"Unloaded addon: %s (Took %uµs.)", aPath.filename().string().c_str(), time / std::chrono::microseconds(1));
+		Logger->Info(CH_LOADER, (const char*)u8"Unloaded addon: %s (Took %uµs.)", aPath.filename().string().c_str(), time / std::chrono::microseconds(1));
 	}
 
 	void UnloadAddon(const std::filesystem::path& aPath, bool aDoReload)

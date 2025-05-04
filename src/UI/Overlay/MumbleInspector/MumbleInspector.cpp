@@ -246,7 +246,7 @@ void CMumbleOverlay::Render()
 					ImGui::TableSetColumnIndex(1); ImGui::Text("%1.4f", this->MumbleIdentity->FOV);
 					ImGui::TableNextRow();
 					ImGui::TableSetColumnIndex(0); ImGui::Text("name");
-					ImGui::TableSetColumnIndex(1); ImGui::Text(&this->MumbleIdentity->Name[0]);
+					ImGui::TableSetColumnIndex(1); ImGui::Text("%s", &this->MumbleIdentity->Name[0]);
 					ImGui::TableNextRow();
 					ImGui::TableSetColumnIndex(0); ImGui::Text("prof");
 					ImGui::TableSetColumnIndex(1); ImGui::Text("%d", this->MumbleIdentity->Profession);

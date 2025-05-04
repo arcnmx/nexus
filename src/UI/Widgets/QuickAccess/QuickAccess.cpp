@@ -377,7 +377,7 @@ void CQuickAccess::RenderContextMenu(const std::string& aIdentifier, const Short
 
 				if (cbshortcut.Callback)
 				{
-					ImGui::TextDisabled(Loader::GetOwner(cbshortcut.Callback).c_str());
+					ImGui::TextDisabled(Loader::GetOwner((void*)cbshortcut.Callback).c_str());
 					cbshortcut.Callback();
 
 					if (idx != amtItems)

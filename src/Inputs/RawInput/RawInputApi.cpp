@@ -10,6 +10,8 @@
 
 #include "Renderer.h"
 
+#include <algorithm>
+
 UINT CRawInputApi::WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	// don't pass to game if addon wndproc

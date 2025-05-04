@@ -1415,7 +1415,7 @@ void CAddonsWindow::PopulateAddons()
 
 		for (GUI_RENDER renderCb : uictx->GetOptionsCallbacks())
 		{
-			std::string parent = Loader::GetOwner(renderCb);
+			std::string parent = Loader::GetOwner((void*)renderCb);
 			if (addon->Definitions && addon->Definitions->Name == parent)
 			{
 				addonItem.OptionsRender = renderCb;

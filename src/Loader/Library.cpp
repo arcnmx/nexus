@@ -41,18 +41,18 @@ namespace Loader
 				{
 					LibraryAddon* newAddon = new LibraryAddon{};
 					newAddon->Signature = addon["id"];
-					newAddon->Name = addon["name"];
-					newAddon->Author = addon["author"];
-					newAddon->Description = addon["description"];
+					newAddon->Name = std::string(addon["name"]);
+					newAddon->Author = std::string(addon["author"]);
+					newAddon->Description = std::string(addon["description"]);
 					newAddon->Provider = GetProvider(addon["download"]);
-					newAddon->DownloadURL = addon["download"];
+					newAddon->DownloadURL = std::string(addon["download"]);
 					if (addon.contains("new") && !addon["new"].is_null())
 					{
 						newAddon->IsNew = addon["new"];
 					}
 					if (addon.contains("tos_compliance") && !addon["tos_compliance"].is_null())
 					{
-						newAddon->ToSComplianceNotice = addon["tos_compliance"];
+						newAddon->ToSComplianceNotice = std::string(addon["tos_compliance"]);
 					}
 					if (addon.contains("addon_policy_tier") && !addon["addon_policy_tier"].is_null())
 					{

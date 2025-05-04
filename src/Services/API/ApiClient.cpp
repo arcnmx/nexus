@@ -15,7 +15,7 @@
 #include "Util/Paths.h"
 #include "Util/Strings.h"
 #include "Util/Time.h"
-#include "Util/URL.h"
+#include "Util/Url.h"
 
 CApiClient::CApiClient(std::string aBaseURL, bool aEnableSSL, std::filesystem::path aCacheDirectory, int aCacheLifetime, int aBucketCapacity, int aRefillAmount, int aRefillInterval, const char* aCertificate)
 {

@@ -147,25 +147,25 @@ namespace ADDONAPI
 		void RegisterWithString(const char* aIdentifier, INPUTBINDS_PROCESS aInputBindHandler, const char* aInputBind)
 		{
 			assert(s_InputBindApi);
-			s_InputBindApi->Register(aIdentifier, EInputBindHandlerType::DownOnly, aInputBindHandler, aInputBind);
+			s_InputBindApi->Register(aIdentifier, EInputBindHandlerType::DownOnly, (void*)aInputBindHandler, aInputBind);
 		}
 
 		void RegisterWithStruct(const char* aIdentifier, INPUTBINDS_PROCESS aInputBindHandler, LegacyInputBind aInputBind)
 		{
 			assert(s_InputBindApi);
-			s_InputBindApi->Register(aIdentifier, EInputBindHandlerType::DownOnly, aInputBindHandler, aInputBind);
+			s_InputBindApi->Register(aIdentifier, EInputBindHandlerType::DownOnly, (void*)aInputBindHandler, aInputBind);
 		}
 
 		void RegisterWithString2(const char* aIdentifier, INPUTBINDS_PROCESS2 aInputBindHandler, const char* aInputBind)
 		{
 			assert(s_InputBindApi);
-			s_InputBindApi->Register(aIdentifier, EInputBindHandlerType::DownAndRelease, aInputBindHandler, aInputBind);
+			s_InputBindApi->Register(aIdentifier, EInputBindHandlerType::DownAndRelease, (void*)aInputBindHandler, aInputBind);
 		}
 
 		void RegisterWithStruct2(const char* aIdentifier, INPUTBINDS_PROCESS2 aInputBindHandler, LegacyInputBind aInputBind)
 		{
 			assert(s_InputBindApi);
-			s_InputBindApi->Register(aIdentifier, EInputBindHandlerType::DownAndRelease, aInputBindHandler, aInputBind);
+			s_InputBindApi->Register(aIdentifier, EInputBindHandlerType::DownAndRelease, (void*)aInputBindHandler, aInputBind);
 		}
 
 		void InvokeInputBind(const char* aIdentifier, bool aIsRelease)
@@ -518,8 +518,8 @@ namespace ADDONAPI
 
 				api->SwapChain = Renderer::SwapChain;
 				api->ImguiContext = ImGui::GetCurrentContext();
-				api->ImguiMalloc = ImGui::MemAlloc;
-				api->ImguiFree = ImGui::MemFree;
+				api->ImguiMalloc = (void*)ImGui::MemAlloc;
+				api->ImguiFree = (void*)ImGui::MemFree;
 				api->RegisterRender = UIRoot::GUI::Register;
 				api->DeregisterRender = UIRoot::GUI::Deregister;
 
@@ -568,8 +568,8 @@ namespace ADDONAPI
 
 				api->SwapChain = Renderer::SwapChain;
 				api->ImguiContext = ImGui::GetCurrentContext();
-				api->ImguiMalloc = ImGui::MemAlloc;
-				api->ImguiFree = ImGui::MemFree;
+				api->ImguiMalloc = (void*)ImGui::MemAlloc;
+				api->ImguiFree = (void*)ImGui::MemFree;
 				api->RegisterRender = UIRoot::GUI::Register;
 				api->DeregisterRender = UIRoot::GUI::Deregister;
 
@@ -629,8 +629,8 @@ namespace ADDONAPI
 
 				api->SwapChain = Renderer::SwapChain;
 				api->ImguiContext = ImGui::GetCurrentContext();
-				api->ImguiMalloc = ImGui::MemAlloc;
-				api->ImguiFree = ImGui::MemFree;
+				api->ImguiMalloc = (void*)ImGui::MemAlloc;
+				api->ImguiFree = (void*)ImGui::MemFree;
 				api->RegisterRender = UIRoot::GUI::Register;
 				api->DeregisterRender = UIRoot::GUI::Deregister;
 
@@ -694,8 +694,8 @@ namespace ADDONAPI
 
 				api->SwapChain = Renderer::SwapChain;
 				api->ImguiContext = ImGui::GetCurrentContext();
-				api->ImguiMalloc = ImGui::MemAlloc;
-				api->ImguiFree = ImGui::MemFree;
+				api->ImguiMalloc = (void*)ImGui::MemAlloc;
+				api->ImguiFree = (void*)ImGui::MemFree;
 				api->RegisterRender = UIRoot::GUI::Register;
 				api->DeregisterRender = UIRoot::GUI::Deregister;
 
@@ -767,8 +767,8 @@ namespace ADDONAPI
 
 				api->SwapChain = Renderer::SwapChain;
 				api->ImguiContext = ImGui::GetCurrentContext();
-				api->ImguiMalloc = ImGui::MemAlloc;
-				api->ImguiFree = ImGui::MemFree;
+				api->ImguiMalloc = (void*)ImGui::MemAlloc;
+				api->ImguiFree = (void*)ImGui::MemFree;
 				api->RegisterRender = UIRoot::GUI::Register;
 				api->DeregisterRender = UIRoot::GUI::Deregister;
 
@@ -842,8 +842,8 @@ namespace ADDONAPI
 
 				api->SwapChain = Renderer::SwapChain;
 				api->ImguiContext = ImGui::GetCurrentContext();
-				api->ImguiMalloc = ImGui::MemAlloc;
-				api->ImguiFree = ImGui::MemFree;
+				api->ImguiMalloc = (void*)ImGui::MemAlloc;
+				api->ImguiFree = (void*)ImGui::MemFree;
 
 				api->Renderer.Register = UIRoot::GUI::Register;
 				api->Renderer.Deregister = UIRoot::GUI::Deregister;

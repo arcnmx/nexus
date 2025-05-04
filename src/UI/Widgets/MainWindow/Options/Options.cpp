@@ -290,7 +290,7 @@ void COptionsWindow::TabStyle()
 			static float fontSize = settingsctx->Get<float>(OPT_FONTSIZE, 13.0f);
 			if (ImGui::InputFloat("##FontSizeInput", &fontSize, 0.0f, 0.0f, "%.1f", ImGuiInputTextFlags_EnterReturnsTrue))
 			{
-				fontSize = min(max(fontSize, 1.0f), 50.0f);
+				fontSize = std::min(std::max(fontSize, 1.0f), 50.0f);
 
 				settingsctx->Set(OPT_FONTSIZE, fontSize);
 

@@ -50,7 +50,7 @@ AddonVersion::AddonVersion(std::string aVersionString)
 		return;
 	}
 
-	if (aVersionString._Starts_with("v"))
+	if (aVersionString.starts_with("v"))
 	{
 		aVersionString = aVersionString.substr(1);
 	}

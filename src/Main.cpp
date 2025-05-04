@@ -1,7 +1,7 @@
 #include "Main.h"
 
 #include <filesystem>
-#include <Psapi.h>
+#include <psapi.h>
 #include <string>
 #include <windowsx.h>
 

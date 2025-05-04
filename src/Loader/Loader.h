@@ -15,7 +15,7 @@
 #include <unordered_map>
 #include <thread>
 #include <filesystem>
-#include <Shlobj.h>
+#include <shlobj.h>
 #include <condition_variable>
 
 #include "ELoaderAction.h"

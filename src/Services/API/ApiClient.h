@@ -20,8 +20,8 @@
 #include "httplib/httplib.h"
 
 #include "CachedResponse.h"
-#include "ApiRequest.h"
-#include "ApiResponse.h"
+#include "APIRequest.h"
+#include "APIResponse.h"
 #include "Services/Logging/LogHandler.h"
 
 #include "nlohmann/json.hpp"

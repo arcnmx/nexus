@@ -9,6 +9,7 @@
 #include "UiContext.h"
 
 #include <filesystem>
+#include <algorithm>
 #include <fstream>
 #include <mutex>
 #include <vector>
@@ -304,12 +305,12 @@ CUiContext::CUiContext(CLogHandler* aLogger, CLocalization* aLocalization, CText
 	//this->MainWindow->AddWindow(aboutWnd);
 
 	/* register InputBinds */
-	this->InputBindApi->Register(KB_MENU,          EIBHType::DownOnly, UIRoot::OnInputBind, "CTRL+O");
-	this->InputBindApi->Register(KB_ADDONS,        EIBHType::DownOnly, UIRoot::OnInputBind, NULLSTR);
-	this->InputBindApi->Register(KB_OPTIONS,       EIBHType::DownOnly, UIRoot::OnInputBind, NULLSTR);
-	this->InputBindApi->Register(KB_LOG,           EIBHType::DownOnly, UIRoot::OnInputBind, NULLSTR);
-	this->InputBindApi->Register(KB_DEBUG,         EIBHType::DownOnly, UIRoot::OnInputBind, NULLSTR);
-	this->InputBindApi->Register(KB_TOGGLEHIDEUI,  EIBHType::DownOnly, UIRoot::OnInputBind, "CTRL+H");
+	this->InputBindApi->Register(KB_MENU,          EIBHType::DownOnly, (void*)UIRoot::OnInputBind, "CTRL+O");
+	this->InputBindApi->Register(KB_ADDONS,        EIBHType::DownOnly, (void*)UIRoot::OnInputBind, NULLSTR);
+	this->InputBindApi->Register(KB_OPTIONS,       EIBHType::DownOnly, (void*)UIRoot::OnInputBind, NULLSTR);
+	this->InputBindApi->Register(KB_LOG,           EIBHType::DownOnly, (void*)UIRoot::OnInputBind, NULLSTR);
+	this->InputBindApi->Register(KB_DEBUG,         EIBHType::DownOnly, (void*)UIRoot::OnInputBind, NULLSTR);
+	this->InputBindApi->Register(KB_TOGGLEHIDEUI,  EIBHType::DownOnly, (void*)UIRoot::OnInputBind, "CTRL+H");
 
 	this->EscapeClose->Register("Nexus", this->MainWindow->GetVisibleStatePtr());
 
@@ -724,7 +725,7 @@ void CUiContext::UpdateScaling()
 		settingsctx->Get<float>(OPT_LASTUISCALE, 1.0f) *
 		/* settingsctx->Get<float>(OPT_GLOBALSCALE, 1.0f) * */
 		io.FontGlobalScale *
-		min(min(Renderer::Width, 1024.0) / 1024.0, min(Renderer::Height, 768.0) / 768.0);
+		std::min(std::min((float)Renderer::Width, 1024.0f) / 1024.0f, std::min((float)Renderer::Height, 768.0f) / 768.0f);
 
 	if (nexuslink)
 	{

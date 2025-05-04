@@ -17,7 +17,7 @@
 #include "Util/MD5.h"
 #include "Util/Paths.h"
 #include "Util/Strings.h"
-#include "Util/URL.h"
+#include "Util/Url.h"
 
 CUpdater::CUpdater(CLogHandler* aLogger)
 {

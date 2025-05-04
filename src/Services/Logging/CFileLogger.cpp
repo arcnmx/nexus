@@ -11,7 +11,11 @@
 CFileLogger::CFileLogger(ELogLevel aLogLevel, std::filesystem::path aPath)
 {
 	LogLevel = aLogLevel;
-	File.open(aPath, std::ios_base::out, SH_DENYWR);
+	File.open(aPath, std::ios_base::out
+#ifndef __MINGW32__
+		, SH_DENYWR
+#endif
+	);
 }
 
 CFileLogger::~CFileLogger()

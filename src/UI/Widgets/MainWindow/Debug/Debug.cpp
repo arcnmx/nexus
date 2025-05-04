@@ -40,7 +40,7 @@ CDebugWindow::CDebugWindow()
 
 	/* bind mumble overlay */
 	CContext* ctx = CContext::GetContext();
-	ctx->GetInputBindApi()->Register(KB_MUMBLEOVERLAY, EInputBindHandlerType::DownOnly, DebugWindow_OnInputBind, NULLSTR);
+	ctx->GetInputBindApi()->Register(KB_MUMBLEOVERLAY, EInputBindHandlerType::DownOnly, (void*)DebugWindow_OnInputBind, NULLSTR);
 	DebugWindow = this;
 }
 

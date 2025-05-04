@@ -137,7 +137,7 @@ void CFontManager::Release(const char* aIdentifier, FONTS_RECEIVECALLBACK aCallb
 	/* refCount reached 0, "mark" this font for deletion by freeing its underlying buffer */
 	if (font.Subscribers.size() == 0)
 	{
-		delete font.Data;
+		delete[] (char*)font.Data;
 		font.Data = nullptr;
 		font.DataSize = 0;
 
@@ -264,7 +264,7 @@ void CFontManager::ReplaceFont(const char* aIdentifier, float aFontSize, const c
 		ManagedFont& oldFont = *it;
 
 		/* free the data*/
-		delete oldFont.Data;
+		delete[] (char*)oldFont.Data;
 		oldFont.Data = nullptr;
 		oldFont.DataSize = 0;
 
@@ -320,7 +320,7 @@ void CFontManager::ReplaceFont(const char* aIdentifier, float aFontSize, unsigne
 		ManagedFont& oldFont = *it;
 
 		/* free the data*/
-		delete oldFont.Data;
+		delete[] (char*)oldFont.Data;
 		oldFont.Data = nullptr;
 		oldFont.DataSize = 0;
 
@@ -366,7 +366,7 @@ void CFontManager::ReplaceFont(const char* aIdentifier, float aFontSize, void* a
 		ManagedFont& oldFont = *it;
 
 		/* free the data*/
-		delete oldFont.Data;
+		delete[] (char*)oldFont.Data;
 		oldFont.Data = nullptr;
 		oldFont.DataSize = 0;
 
@@ -471,7 +471,7 @@ int CFontManager::Verify(void* aStartAddress, void* aEndAddress)
 
 		if (font.Subscribers.size() == 0)
 		{
-			delete font.Data;
+			delete[] (char*)font.Data;
 			font.Data = nullptr;
 			font.DataSize = 0;
 
